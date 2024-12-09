@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjetoClientes.Data;
-
+using MinhaAplicacao.Models;
 namespace MinhaAplicacao.Controllers
+
 {
     public class ClienteController : Controller
     {
@@ -55,13 +56,28 @@ namespace MinhaAplicacao.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,NomeCompleto,DataNascimento,RG,CPF,Logradouro,Bairro,Cidade,Complemento,UF,CEP,EstadoCivil,NomePai,NomeMae")] Cliente cliente)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(cliente);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(cliente);
+            if (ModelState.IsValid) // <-- Isso verifica se o modelo é válido
+    {
+        try
+        {
+            _context.Add(cliente);
+            await _context.SaveChangesAsync();
+            TempData["SuccessMessage"] = "Cliente criado com sucesso!";
+            return RedirectToAction(nameof(Index));
+        }
+        catch (Exception ex)
+        {
+            TempData["ErrorMessage"] = $"Erro ao criar cliente: {ex.Message}";
+        }
+    }
+
+    // Adicione os erros do ModelState para depuração
+    foreach (var modelError in ModelState.Values.SelectMany(v => v.Errors))
+    {
+        Console.WriteLine(modelError.ErrorMessage);
+    }
+
+    return View(cliente);
         }
 
         // GET: Cliente/Edit/5

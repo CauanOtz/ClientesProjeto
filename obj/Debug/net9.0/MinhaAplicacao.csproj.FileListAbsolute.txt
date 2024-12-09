@@ -350,7 +350,6 @@ C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\MinhaAplicacao.RazorAssemblyInf
 C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\scopedcss\bundle\MinhaAplicacao.styles.css
 C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\scopedcss\projectbundle\MinhaAplicacao.bundle.scp.css
-C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\rfx0hpty1k-b9sayid5wm.gz
 C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\wux31au2x6-61n19gt1b8.gz
 C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\it4jt267ih-xtxxf3hu2r.gz
 C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\m5q8v4l9f0-bqjiyaj88i.gz
@@ -546,3 +545,9 @@ C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Scrip
 C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+c:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\MinhaAplicacao.sourcelink.json
+C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
+C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\System.Security.Permissions.dll
+C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\rfx0hpty1k-d71swulk2j.gz

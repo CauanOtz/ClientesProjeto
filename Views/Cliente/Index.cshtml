@@ -1,109 +1,96 @@
 @model IEnumerable<Cliente>
 
 @{
-    Layout = "_Layout";
+    Layout = "_Layout"; 
 }
 
-<h1 class="text-center my-4">Index</h1>
+<div class="container my-5">
+    <h1 class="text-center mb-4">Lista de Clientes</h1>
 
-<p class="text-center">
-    <a class="btn btn-primary" asp-action="Create">Create New</a>
-</p>
+    <!-- Seção de gerenciamento e criação de novos clientes -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3>Gerenciamento de Clientes</h3>
+        <!-- Botão para redirecionar o usuário para a página de criação de um novo cliente -->
+        <a class="btn btn-success btn-lg" asp-action="Create">Criar Novo</a>
+    </div>
 
-<table class="table table-striped table-bordered table-hover">
-    <thead class="table-dark">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeCompleto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataNascimento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CPF)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Logradouro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Bairro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Complemento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UF)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CEP)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EstadoCivil)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomePai)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomeMae)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomeCompleto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DataNascimento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RG)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CPF)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Logradouro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Bairro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Cidade)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Complemento)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UF)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CEP)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EstadoCivil)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomePai)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomeMae)
-                </td>
-                <td>
-                    <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <!-- Tabela responsiva para listar os clientes -->
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered align-middle">
+            <thead class="table-dark text-center">
+                <tr>
+                    <!-- Exibe os nomes das colunas, correspondendo às propriedades do modelo Cliente -->
+                    <th>@Html.DisplayNameFor(model => model.NomeCompleto)</th>
+                    <th>@Html.DisplayNameFor(model => model.DataNascimento)</th>
+                    <th>@Html.DisplayNameFor(model => model.RG)</th>
+                    <th>@Html.DisplayNameFor(model => model.CPF)</th>
+                    <th>@Html.DisplayNameFor(model => model.Logradouro)</th>
+                    <th>@Html.DisplayNameFor(model => model.Bairro)</th>
+                    <th>@Html.DisplayNameFor(model => model.Cidade)</th>
+                    <th>@Html.DisplayNameFor(model => model.Complemento)</th>
+                    <th>@Html.DisplayNameFor(model => model.UF)</th>
+                    <th>@Html.DisplayNameFor(model => model.CEP)</th>
+                    <th>@Html.DisplayNameFor(model => model.EstadoCivil)</th>
+                    <th>@Html.DisplayNameFor(model => model.NomePai)</th>
+                    <th>@Html.DisplayNameFor(model => model.NomeMae)</th>
+                    <th>Ações</th> <!-- Coluna de ações para cada cliente -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Exibição condicional: se não houver clientes, exibe uma mensagem -->
+                @if (!Model.Any())
+                {
+                    <tr>
+                        <td colspan="14" class="text-center text-muted">Nenhum cliente encontrado</td>
+                    </tr>
+                }
+                else
+                {
+                    <!-- Itera sobre a lista de clientes e exibe os dados de cada um -->
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.NomeCompleto)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DataNascimento)</td>
+                            <td>@Html.DisplayFor(modelItem => item.RG)</td>
+                            <td>@Html.DisplayFor(modelItem => item.CPF)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Logradouro)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Bairro)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Cidade)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Complemento)</td>
+                            <td>@Html.DisplayFor(modelItem => item.UF)</td>
+                            <td>@Html.DisplayFor(modelItem => item.CEP)</td>
+                            <td>@Html.DisplayFor(modelItem => item.EstadoCivil)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NomePai)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NomeMae)</td>
+                            <!-- Ações para cada cliente -->
+                            <td class="text-center d-flex align-items-center">
+                                <!-- Botão para editar o cliente -->
+                                <a class="btn btn-warning btn-sm me-1" asp-action="Edit" asp-route-id="@item.Id">
+                                    <i class="fa fa-edit"></i> Editar
+                                </a>
+                                <!-- Botão para visualizar os detalhes do cliente -->
+                                <a class="btn btn-info btn-sm me-1" asp-action="Details" asp-route-id="@item.Id">
+                                    <i class="fa fa-eye"></i> Detalhes
+                                </a>
+                                <!-- Botão para excluir o cliente -->
+                                <a class="btn btn-danger btn-sm" asp-action="Delete" asp-route-id="@item.Id">
+                                    <i class="fa fa-trash"></i> Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Explicação sobre as heurísticas do sistema -->
+    <div class="alert alert-info mt-5">
+        <h4 class="text-center">Como Funciona:</h4>
+        <p><strong>Criar Cliente:</strong> Para adicionar um novo cliente ao sistema, clique no botão "Criar Novo" na parte superior direita. Você será redirecionado para um formulário onde poderá inserir todas as informações do cliente. Após preencher os dados, clique em "Salvar" para registrar o cliente.</p>
+        <p><strong>Editar Cliente:</strong> Para editar as informações de um cliente existente, clique no botão "Editar" à direita de cada linha. Isso abrirá um formulário pré-preenchido com os dados do cliente, permitindo a atualização das informações. Após fazer as alterações, clique em "Salvar" para confirmar as mudanças.</p>
+        <p><strong>Detalhar Cliente:</strong> Para visualizar as informações completas de um cliente, clique no botão "Detalhes". Isso exibirá uma página com todos os dados do cliente de forma detalhada, sem possibilidade de edição.</p>
+        <p><strong>Excluir Cliente:</strong> Para excluir um cliente, clique no botão "Excluir". Você será solicitado a confirmar a exclusão antes de o cliente ser removido permanentemente do sistema.</p>
+    </div>
+</div>
