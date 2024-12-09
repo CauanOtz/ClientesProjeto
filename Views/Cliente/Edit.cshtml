@@ -5,6 +5,10 @@
     Layout = "_Layout";
 }
 
+@section Styles {
+    <link href="~/css/form.css" rel="stylesheet" />
+}
+
 <div class="container mt-5">
     <h1 class="text-center my-4 display-4 text-primary">Editar Cliente</h1>
 
@@ -122,59 +126,4 @@
     </form>
 </div>
 
-<style>
-    .form-control {
-        border-radius: 10px; 
-        transition: all 0.3s ease; 
-    }
-
-    .form-control:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    }
-
-    .btn {
-        border-radius: 25px;
-        padding: 10px 30px;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-        background-color: #007bff;
-    }
-
-    .alert {
-        border-radius: 10px;
-    }
-</style>
-
-<script>
-    function preencherEndereco(dados) {
-        if (!("erro" in dados)) {
-            $("#Logradouro").val(dados.logradouro);
-            $("#Bairro").val(dados.bairro);
-            $("#Cidade").val(dados.localidade);
-            $("#UF").val(dados.uf);
-        } else {
-            alert("CEP não encontrado.");
-            $("#Logradouro").val("");
-            $("#Bairro").val("");
-            $("#Cidade").val("");
-            $("#UF").val("");
-        }
-    }
-
-    $("#CEP").on("blur", function () {
-        var cep = $(this).val().replace(/\D/g, '');
-        if (cep.length === 8) {
-            var url = `https://viacep.com.br/ws/${cep}/json/`;
-            $.getJSON(url, function (dados) {
-                preencherEndereco(dados);
-            });
-        } else {
-            alert("CEP inválido.");
-        }
-    });
-
-</script>
+<script src="~/js/cep.js"></script>

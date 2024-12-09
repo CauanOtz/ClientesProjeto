@@ -550,4 +550,6 @@ C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.
 C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
 C:\Faculdade\IHC\MinhaAplicacao\bin\Debug\net9.0\System.Security.Permissions.dll
-C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\rfx0hpty1k-d71swulk2j.gz
+C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\hmxrj0z1my-ipc7ofgxdc.gz
+C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\qo7e038g6a-fj7srb2j05.gz
+C:\Faculdade\IHC\MinhaAplicacao\obj\Debug\net9.0\compressed\rfx0hpty1k-fj00rlqasm.gz

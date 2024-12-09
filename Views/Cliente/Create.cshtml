@@ -5,6 +5,10 @@
     Layout = "_Layout";
 }
 
+@section Styles {
+    <link href="~/css/form.css" rel="stylesheet" />
+}
+
 <div class="container mt-5">
     <h1 class="text-center my-4 display-4 text-primary">Cadastrar Cliente</h1>
 
@@ -115,60 +119,18 @@
     </form>
 </div>
 
-<style>
-    .form-control {
-        border-radius: 10px; 
-        transition: all 0.3s ease; 
-    }
-
-    .form-control:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    }
-
-    .btn {
-        border-radius: 25px;
-        padding: 10px 30px;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-        background-color: #007bff;
-    }
-
-    .alert {
-        border-radius: 10px;
-    }
-</style>
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    function preencherEndereco(dados) {
-        if (!("erro" in dados)) {
-            $("#Logradouro").val(dados.logradouro);
-            $("#Bairro").val(dados.bairro);
-            $("#Cidade").val(dados.localidade);
-            $("#UF").val(dados.uf);
-        } else {
-            alert("CEP não encontrado.");
-            $("#Logradouro").val("");
-            $("#Bairro").val("");
-            $("#Cidade").val("");
-            $("#UF").val("");
-        }
-    }
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/cep.js"></script>
 
-    $("#CEP").on("blur", function () {
-        var cep = $(this).val().replace(/\D/g, '');
-        if (cep.length === 8) {
-            var url = `https://viacep.com.br/ws/${cep}/json/`;
-            $.getJSON(url, function (dados) {
-                preencherEndereco(dados);
-            });
-        } else {
-            alert("CEP inválido.");
-        }
-    });
-</script>
-
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: '@TempData["SuccessMessage"]',
+            confirmButtonText: 'OK'
+        });
+    </script>
+}

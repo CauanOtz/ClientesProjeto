@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\MinhaAplicacao.ntdbruvpup.bundle.scp.css"
     },
     {
+      "Id": "C:\\Faculdade\\IHC\\MinhaAplicacao\\wwwroot\\css\\form.css",
+      "PackagePath": "staticwebassets\\css\\form.css"
+    },
+    {
       "Id": "C:\\Faculdade\\IHC\\MinhaAplicacao\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "C:\\Faculdade\\IHC\\MinhaAplicacao\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Faculdade\\IHC\\MinhaAplicacao\\wwwroot\\js\\cep.js",
+      "PackagePath": "staticwebassets\\js\\cep.js"
     },
     {
       "Id": "C:\\Faculdade\\IHC\\MinhaAplicacao\\wwwroot\\js\\site.js",

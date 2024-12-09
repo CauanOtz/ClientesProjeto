@@ -126,6 +126,7 @@ namespace MinhaAplicacao.Controllers
                         throw;
                     }
                 }
+                TempData["SuccessMessage"] = "Cliente atualizado com sucesso!";
                 return RedirectToAction(nameof(Index));
             }
             return View(cliente);
@@ -158,9 +159,11 @@ namespace MinhaAplicacao.Controllers
             if (cliente != null)
             {
                 _context.Clientes.Remove(cliente);
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Cliente excluido com sucesso!";
             }
 
-            await _context.SaveChangesAsync();
+            
             return RedirectToAction(nameof(Index));
         }
 

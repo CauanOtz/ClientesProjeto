@@ -31,30 +31,3 @@
   color: #FFD700;
   text-decoration: underline;
 }
-
-/* Form */
-
-.form-control {
-  border-radius: 10px; 
-  transition: all 0.3s ease; 
-}
-
-.form-control:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-}
-
-.btn {
-  border-radius: 25px;
-  padding: 10px 30px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #007bff;
-}
-
-.alert {
-  border-radius: 10px;
-}
