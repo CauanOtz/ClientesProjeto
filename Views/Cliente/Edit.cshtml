@@ -29,10 +29,8 @@
         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
         <div class="row g-3">
-            <!-- Hidden Field for Id -->
             <input type="hidden" asp-for="Id" />
 
-            <!-- Nome Completo -->
             <div class="col-md-6">
                 <label asp-for="NomeCompleto" class="form-label fw-bold">Nome Completo</label>
                 <input asp-for="NomeCompleto" class="form-control" placeholder="Digite o nome completo" />
@@ -62,19 +60,19 @@
             <!-- Endereço -->
             <div class="col-md-6">
                 <label asp-for="Logradouro" class="form-label fw-bold">Logradouro</label>
-                <input asp-for="Logradouro" class="form-control" placeholder="Digite o Logradouro" />
+                <input asp-for="Logradouro" id="Logradouro" class="form-control" placeholder="Digite o Logradouro" />
                 <span asp-validation-for="Logradouro" class="text-danger"></span>
             </div>
 
             <div class="col-md-6">
                 <label asp-for="Bairro" class="form-label fw-bold">Bairro</label>
-                <input asp-for="Bairro" class="form-control" placeholder="Digite o Bairro" />
+                <input asp-for="Bairro" id="Bairro" class="form-control" placeholder="Digite o Bairro" />
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
 
             <div class="col-md-6">
                 <label asp-for="Cidade" class="form-label fw-bold">Cidade</label>
-                <input asp-for="Cidade" class="form-control" placeholder="Digite a Cidade" />
+                <input asp-for="Cidade" id="Cidade" class="form-control" placeholder="Digite a Cidade" />
                 <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
 
@@ -86,13 +84,13 @@
 
             <div class="col-md-4">
                 <label asp-for="UF" class="form-label fw-bold">UF</label>
-                <input asp-for="UF" class="form-control" placeholder="Digite o UF" />
+                <input asp-for="UF" id="UF" class="form-control" placeholder="Digite o UF" />
                 <span asp-validation-for="UF" class="text-danger"></span>
             </div>
 
             <div class="col-md-4">
                 <label asp-for="CEP" class="form-label fw-bold">CEP</label>
-                <input asp-for="CEP" class="form-control" placeholder="Digite o CEP" />
+                <input asp-for="CEP" id="CEP" class="form-control" placeholder="Digite o CEP" />
                 <span asp-validation-for="CEP" class="text-danger"></span>
             </div>
 
@@ -150,3 +148,33 @@
         border-radius: 10px;
     }
 </style>
+
+<script>
+    function preencherEndereco(dados) {
+        if (!("erro" in dados)) {
+            $("#Logradouro").val(dados.logradouro);
+            $("#Bairro").val(dados.bairro);
+            $("#Cidade").val(dados.localidade);
+            $("#UF").val(dados.uf);
+        } else {
+            alert("CEP não encontrado.");
+            $("#Logradouro").val("");
+            $("#Bairro").val("");
+            $("#Cidade").val("");
+            $("#UF").val("");
+        }
+    }
+
+    $("#CEP").on("blur", function () {
+        var cep = $(this).val().replace(/\D/g, '');
+        if (cep.length === 8) {
+            var url = `https://viacep.com.br/ws/${cep}/json/`;
+            $.getJSON(url, function (dados) {
+                preencherEndereco(dados);
+            });
+        } else {
+            alert("CEP inválido.");
+        }
+    });
+
+</script>
