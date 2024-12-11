@@ -47,13 +47,13 @@
 
             <div class="col-md-6">
                 <label asp-for="RG" class="form-label fw-bold">RG</label>
-                <input asp-for="RG" class="form-control" placeholder="Digite o RG" />
+                <input asp-for="RG" id="RG" class="form-control" placeholder="Digite o RG" />
                 <span asp-validation-for="RG" class="text-danger"></span>
             </div>
 
             <div class="col-md-6">
                 <label asp-for="CPF" class="form-label fw-bold">CPF</label>
-                <input asp-for="CPF" class="form-control" placeholder="Digite o CPF" />
+                <input asp-for="CPF" id="CPF"  class="form-control" placeholder="Digite o CPF" />
                 <span asp-validation-for="CPF" class="text-danger"></span>
             </div>
 
@@ -120,8 +120,24 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="~/js/cep.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $("#CPF").mask("000.000.000-00");
+
+        $("#RG").mask("00.000.000-0");
+
+        $("#CEP").mask("00000-000");
+
+        $("#Telefone").mask("(00) 00000-0000");
+
+        $("#UF").mask("AA");
+
+    });
+</script>
 
 @if (TempData["SuccessMessage"] != null)
 {
